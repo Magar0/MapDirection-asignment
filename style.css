@@ -48,6 +48,30 @@ button {
         justify-content: space-around;
         font-size: 1.2rem;
         padding: 0 10px;
+
+        i {
+            z-index: 2;
+        }
+
+        hr {
+            position: absolute;
+            border: none;
+            border-top: 3px dotted yellow;
+            color: rgb(26, 26, 26);
+            height: 1px;
+            width: 14%;
+            z-index: 1;
+
+            &:nth-child(1) {
+                left: 21%;
+            }
+
+            &:nth-child(3) {
+                right: 15%;
+                border-top: 3px dotted white;
+
+            }
+        }
     }
 
 
@@ -95,6 +119,7 @@ button {
         margin: auto;
         border-radius: 50%;
         margin-left: 5px;
+        z-index: 2;
     }
 
     .dot {

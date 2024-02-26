@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.css" />
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
+    <script src="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.js"></script>
+
+    <link rel="stylesheet" href="./style.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container">
+        <div id="map"></div>
+
+    </div>
+
+    <script>
+        const starting = [26.748967, 94.203003];
+        const ending = [26.753600, 94.205820]
+        // const map = L.map('map').setView(starting, 15);
+        const baseLayer = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+        })
+
+        const map = L.map('map', {
+            center: starting,
+            zoom: 14,
+            layers: [baseLayer]
+        });
+
+        // const marker = L.marker(starting).addTo(map);
+
+        // making direction
+        var control = L.Routing.control({
+            waypoints: [L.latLng(starting[0], starting[1]),
+            L.latLng(ending[0], ending[1])
+            ]
+        }).addTo(map)
+        console.log(starting[0], starting[1]);
+    </script>
+</body>
+
+</html>
